@@ -1,0 +1,559 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+}
+html:before,
+body:before {
+  content: "";
+  content: "";
+  width: 100%;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1000%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M528.76 104.69L533.34 104.69L533.34 109.27L528.76 109.27z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M405.35 110.28a32.78 32.78 0 1 0 9.13-64.92z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M1221.11 556.94 a49.85 49.85 0 1 0 99.7 0 a49.85 49.85 0 1 0 -99.7 0z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M1420.88 58.74L1448.43 58.74L1448.43 113.57L1420.88 113.57z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M1340.25 468.87a25.76 25.76 0 1 0 47.84-19.12z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M742.2 65.58L746.66 65.58L746.66 100.82L742.2 100.82z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M53.04 91.7 a36.38 36.38 0 1 0 72.76 0 a36.38 36.38 0 1 0 -72.76 0z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M1010.8 277.92L1058.09 277.92L1058.09 322.07L1010.8 322.07z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M1236.04 236.16 a0.16 0.16 0 1 0 0.32 0 a0.16 0.16 0 1 0 -0.32 0z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M1188.55 347.75 a29.52 29.52 0 1 0 59.04 0 a29.52 29.52 0 1 0 -59.04 0z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M1366.74 510.11 a45.6 45.6 0 1 0 91.2 0 a45.6 45.6 0 1 0 -91.2 0z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M987.06 144.47L1005 144.47L1005 200.18L987.06 200.18z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M432.21 31.46L457.46 31.46L457.46 53.96L432.21 53.96z' fill='%23d3b714'%3e%3c/path%3e%3cpath d='M1238.22 139L1256.85 139L1256.85 157.63L1238.22 157.63z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M545.03 154.04 a19.71 19.71 0 1 0 39.42 0 a19.71 19.71 0 1 0 -39.42 0z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M887.98 503.91L932.17 503.91L932.17 545.92L887.98 545.92z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M112.22 99.65a17.49 17.49 0 1 0 21.06-27.93z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M946.55 163.6 a0.25 0.25 0 1 0 0.5 0 a0.25 0.25 0 1 0 -0.5 0z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M194.21 117.71L203.8 117.71L203.8 140.08L194.21 140.08z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M989.59 282.67a1.38 1.38 0 1 0-1.83 2.07z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M475.15 190.01L519.44 190.01L519.44 234.3L475.15 234.3z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M176.47 509.04a38.8 38.8 0 1 0-42.12 65.17z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M824.49 242.01L853.75 242.01L853.75 274.18L824.49 274.18z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M1252.55 204.46L1294.34 204.46L1294.34 246.25L1252.55 246.25z' fill='%23e73635'%3e%3c/path%3e%3cpath d='M1039.73 69.95L1052.11 69.95L1052.11 82.33L1039.73 82.33z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M807.67 502.58a34.59 34.59 0 1 0 48.2-49.62z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M250.9 194.07 a48.15 48.15 0 1 0 96.3 0 a48.15 48.15 0 1 0 -96.3 0z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M1271.66 18.87L1293.75 18.87L1293.75 40.96L1271.66 40.96z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M1094.09 191.58L1111.65 191.58L1111.65 205.29L1094.09 205.29z' fill='%23037b0b'%3e%3c/path%3e%3cpath d='M257.73 54.97a38.86 38.86 0 1 0-3.39 77.64z' stroke='%23d3b714'%3e%3c/path%3e%3cpath d='M555.59 404.92 a27.59 27.59 0 1 0 55.18 0 a27.59 27.59 0 1 0 -55.18 0z' stroke='%23e73635'%3e%3c/path%3e%3cpath d='M371.81 170.82L380.89 170.82L380.89 179.9L371.81 179.9z' stroke='%23037b0b'%3e%3c/path%3e%3cpath d='M665.72 313.25L688.31 313.25L688.31 367.97L665.72 367.97z' fill='%23d3b714'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1000'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  margin-bottom: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.header .logo {
+  color: white;
+  padding: 0 1rem;
+}
+.header .inputSection {
+  padding: 0 1rem;
+}
+.header .inputSection input {
+  width: 300px;
+  font-size: 24px;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 10px;
+  color: #1f2633;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1) inset;
+}
+.header .inputSection input::-moz-placeholder {
+  color: #707070;
+}
+.header .inputSection input:-ms-input-placeholder {
+  color: #707070;
+}
+.header .inputSection input::placeholder {
+  color: #707070;
+}
+.header .inputSection input:focus {
+  outline: none;
+}
+.header .createPost {
+  width: 300px;
+  height: 70px;
+  margin-top: 10px;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.header .createPost button {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 450;
+  padding: 0.9rem 0.8rem;
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.1) inset;
+  background-color: #264494;
+  color: white;
+  transition: margin 0.2s linear;
+  cursor: pointer;
+}
+.header .createPost button:hover {
+  background-color: #173383;
+  margin-top: -7px;
+}
+.header .category {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.header .category span {
+  font-size: 20px;
+  color: white;
+  font-weight: 500;
+  padding: 1rem;
+  cursor: pointer;
+}
+.header .category span:hover {
+  transform: scale(1.2, 1.2);
+}
+
+img {
+  width: 100px;
+}
+
+.recentPostContainer, .postDetailsContainer {
+  background-color: white;
+  width: 60%;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+}
+.recentPostContainer .image, .postDetailsContainer .image {
+  width: 100%;
+  height: 350px;
+}
+.recentPostContainer .image img, .postDetailsContainer .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.recentPostContainer .specialImage, .postDetailsContainer .specialImage {
+  position: absolute;
+  top: 315px;
+}
+.recentPostContainer .specialImage img, .postDetailsContainer .specialImage img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  outline-offset: 4px;
+  outline: 2px solid #173383;
+  z-index: 1;
+}
+.recentPostContainer .authorInfoAndDate, .postDetailsContainer .authorInfoAndDate {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.recentPostContainer .authorInfoAndDate .authorInfo, .postDetailsContainer .authorInfoAndDate .authorInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.recentPostContainer .authorInfoAndDate .authorInfo img, .postDetailsContainer .authorInfoAndDate .authorInfo img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.recentPostContainer .authorInfoAndDate .authorInfo span, .postDetailsContainer .authorInfoAndDate .authorInfo span {
+  margin-left: 9px;
+  font-weight: bolder;
+  color: #3f579b;
+}
+.recentPostContainer .date span, .postDetailsContainer .date span {
+  font-weight: bold;
+  color: #1f2633;
+  margin-right: 9px;
+  margin-top: 5px;
+}
+.recentPostContainer .date span:first-child, .postDetailsContainer .date span:first-child {
+  font-size: 20px;
+  color: #96419e;
+}
+.recentPostContainer .postTitle, .postDetailsContainer .postTitle {
+  padding: 1rem;
+}
+.recentPostContainer .postTitle h2, .postDetailsContainer .postTitle h2 {
+  color: #333333;
+  cursor: pointer;
+}
+.recentPostContainer .postTitle h2:hover, .postDetailsContainer .postTitle h2:hover {
+  color: #9728a1;
+}
+.recentPostContainer .postContent, .postDetailsContainer .postContent {
+  padding: 0.5rem 1rem;
+}
+.recentPostContainer .postContent p, .postDetailsContainer .postContent p {
+  color: #4b5563;
+  font-size: 20px;
+  word-wrap: break-word;
+}
+.recentPostContainer .linkToFullPost, .postDetailsContainer .linkToFullPost {
+  margin-bottom: 20px;
+  height: 50px;
+}
+.recentPostContainer .linkToFullPost button, .postDetailsContainer .linkToFullPost button {
+  width: 250px;
+  font-size: 23px;
+  padding: 0.8rem 0.7rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #173383;
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1) inset;
+  color: white;
+  transition: margin 0.2s linear;
+  cursor: pointer;
+}
+.recentPostContainer .linkToFullPost button:hover, .postDetailsContainer .linkToFullPost button:hover {
+  background-color: #96419e;
+  margin-top: -7px;
+}
+
+.footer {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: white;
+}
+
+.postDetailsContainer .image {
+  width: 100%;
+  height: 350px;
+}
+.postDetailsContainer .image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.postDetailsContainer .authorInfoAndDate {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.postDetailsContainer .authorInfo {
+  padding-left: 2rem;
+  margin-right: 50px;
+}
+.postDetailsContainer .date {
+  margin-top: 5px;
+}
+.postDetailsContainer .postContent {
+  padding: 1rem 2rem;
+}
+.postDetailsContainer .postTitle {
+  padding: 1rem;
+}
+.postDetailsContainer .postTitle h1 {
+  width: 100%;
+  margin: 15px auto;
+  color: #333333;
+}
+
+.commentsContainer {
+  background-color: white;
+  width: 60%;
+  margin: 20px auto;
+  padding: 1rem 0;
+}
+.commentsContainer .comment {
+  padding: 1.5rem 3rem;
+  margin: 20px;
+  box-shadow: 0 0 3px 1px #173383 inset;
+  border-radius: 10px;
+}
+.commentsContainer .comment span {
+  color: #1f2633;
+  font-size: 15px;
+  font-weight: bolder;
+}
+.commentsContainer .comment p {
+  color: #4b5563;
+}
+
+.commentForm {
+  width: 70%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 1rem 1.3rem;
+}
+.commentForm .email input {
+  width: 300px;
+  font-size: 23px;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid #173383;
+}
+.commentForm .email input::-moz-placeholder {
+  color: #949292;
+}
+.commentForm .email input:-ms-input-placeholder {
+  color: #949292;
+}
+.commentForm .email input::placeholder {
+  color: #949292;
+}
+.commentForm .email input:focus {
+  outline: none;
+  border: 2px solid #173383;
+}
+.commentForm .textarea {
+  margin: 5px auto;
+}
+.commentForm .textarea textarea {
+  width: 500px;
+  height: 200px;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: 20px;
+  color: #1f2633;
+  resize: none;
+  border: 1px solid #173383;
+}
+.commentForm .textarea textarea:focus {
+  outline: none;
+  border: 2px solid #173383;
+}
+.commentForm .submit {
+  width: 300px;
+  height: 70px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.commentForm .submit button {
+  width: 200px;
+  font-size: 22px;
+  padding: 0.6rem 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: #173383;
+  border-radius: 5px;
+  color: white;
+  transition: transform 0.2s linear;
+}
+.commentForm .submit button:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.createNewPost {
+  width: 70%;
+  margin: 30px auto;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 1rem 1rem;
+}
+.createNewPost h1 {
+  color: #1f2633;
+}
+.createNewPost .textarea {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.createNewPost .textarea textarea {
+  width: 70%;
+  height: 100px;
+  border: 1px solid #173383;
+  resize: none;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px auto;
+  font-size: 22px;
+  color: #5e5d5d;
+}
+.createNewPost .textarea textarea:focus {
+  outline: none;
+  border: 2px solid #4b6ecc;
+}
+.createNewPost .imageAndCategory {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.createNewPost .imageAndCategory .image {
+  margin-left: 30px;
+}
+.createNewPost .imageAndCategory .image input {
+  width: 120px;
+  font-size: 20px;
+  margin: 0 auto;
+  border: none;
+  border: 2px solid #173383;
+  border-radius: 10px;
+  overflow: none;
+}
+.createNewPost .imageAndCategory .category {
+  margin: 10px auto;
+  margin-left: 20px;
+}
+.createNewPost .imageAndCategory .category select {
+  width: 230px;
+  font-size: 20px;
+  padding: 1rem;
+  color: #173383;
+  border: 2px solid #2f53b6;
+}
+.createNewPost .imageAndCategory .category select option {
+  color: grey;
+}
+.createNewPost button {
+  width: 200px;
+  font-size: 22px;
+  margin: 15px auto;
+  padding: 0.6rem 1rem;
+  border: 2px solid purple;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #173383;
+  background-color: white;
+  transition: background-color 0.4s linear;
+  box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.1);
+}
+.createNewPost button:hover {
+  transform: scale(1.1, 1.1);
+  background-color: purple;
+  color: white;
+}
+
+.error {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.error h1 {
+  font-size: 50px;
+  padding: 1rem;
+  color: white;
+}
+
+@media screen and (max-width: 850px) {
+  .commentForm {
+    width: 90%;
+  }
+  .commentForm .textarea {
+    margin: 5px auto;
+  }
+  .commentForm .textarea textarea {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .recentPostContainer, .postDetailsContainer {
+    width: 100%;
+    border-radius: 0;
+    margin: 0px auto;
+    margin-bottom: 40px;
+  }
+  .recentPostContainer .authorInfoAndDate, .postDetailsContainer .authorInfoAndDate {
+    width: 100%;
+  }
+
+  .postDetailsContainer {
+    width: 100%;
+    border-radius: 0;
+    margin: 0px auto;
+    margin-bottom: 40px;
+  }
+
+  .commentsContainer {
+    width: 100%;
+  }
+  .commentsContainer .comment {
+    padding: 1rem 2rem;
+  }
+
+  .commentForm {
+    width: 90%;
+  }
+  .commentForm .textarea {
+    margin: 5px auto;
+  }
+  .commentForm .textarea textarea {
+    width: 300px;
+  }
+
+  .createNewPost {
+    width: 100%;
+  }
+  .createNewPost .imageAndCategory {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .createNewPost .imageAndCategory .image {
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
+  .createNewPost .imageAndCategory .category {
+    margin-left: 0px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .error {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .error h1 {
+    font-size: 50px;
+    padding: 1rem;
+    color: white;
+  }
+}/*# sourceMappingURL=style.css.map */
