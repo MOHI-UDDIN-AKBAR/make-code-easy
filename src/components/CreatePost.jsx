@@ -1,33 +1,39 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { useResultContext } from "../context/ResultContenxt";
 const CreatePost = () => {
-  const [allPost, setAllPost] = useState([]);
+  const { addCreatedPost, allPost, setAllPost, post, setPost } =
+    useResultContext();
+  // const [allPost, setAllPost] = useState([]);
   const inputRef = useRef();
-  const [post, setPost] = useState({
-    text: "",
-    image: null,
-    category: "",
-    date: "",
-  });
+  // const [post, setPost] = useState({
+  //   text: "",
+  //   image: null,
+  //   category: "",
+  //   date: "",
+  // });
 
   const addPost = () => {
     const { text, image, category, date } = post;
-    setPost({ ...post, date: new Date().getTime().toString() });
     console.log(post);
     if (text && image && category && date) {
       setAllPost([...allPost, post]);
+      console.log(post);
+      addCreatedPost();
       setPost({
         text: "",
         image: "",
-        category: "react-developer",
+        category: category ? category : "web-developer",
         date: "",
       });
     }
   };
+  // useEffect(() => {
+  // }, []);
   useEffect(() => {
     // console.log(post);
-    console.log(allPost);
-    console.log(inputRef.current);
+    // console.log(allPost);
+    // console.log(inputRef.current);
     const input = inputRef;
   }, [allPost]);
 
@@ -38,7 +44,13 @@ const CreatePost = () => {
         <textarea
           placeholder="Type your post..."
           value={post.text}
-          onChange={(e) => setPost({ ...post, text: e.target.value })}
+          onChange={(e) =>
+            setPost({
+              ...post,
+              text: e.target.value,
+              date: new Date().getTime().toString(),
+            })
+          }
         />
       </div>
       <div className="imageAndCategory">
@@ -57,7 +69,12 @@ const CreatePost = () => {
 
         <div className="category">
           <select
-            onChange={(e) => setPost({ ...post, category: e.target.value })}
+            onChange={(e) =>
+              setPost({
+                ...post,
+                category: e.target.value,
+              })
+            }
           >
             <option value="web-developer">Web Developer</option>
             <option value="react-developer">React Developer</option>
@@ -65,10 +82,7 @@ const CreatePost = () => {
           </select>
         </div>
       </div>
-
-      <button type="button" onClick={addPost}>
-        Add Post
-      </button>
+      <button onClick={() => addPost()}>Add Post</button>
     </div>
   );
 };
