@@ -72,7 +72,7 @@ const PostDetails = () => {
               </div>
             </div>
             <Comments />
-            <CommentForm />
+            <CommentForm id={id} />
           </div>
         );
       })}

@@ -1,15 +1,30 @@
 import React, { useState, useEffect } from "react";
-
-const CommentForm = () => {
-  const [comments, setComments] = useState([]);
+import { useResultContext } from "../context/ResultContenxt";
+const CommentForm = ({ id }) => {
+  const {
+    addCreatedPost,
+    allPost,
+    setAllPost,
+    post,
+    setPost,
+    getAllCreatedPost,
+    getAllPostInRealTime,
+    comments,
+    setComments,
+    addCommentOnCurrentPost,
+  } = useResultContext();
+  // const [comments, setComments] = useState([]);
   const [comment, setComment] = useState({
     text: "",
     email: "",
   });
 
   const handleInput = () => {
-    const newComment = { ...comment, id: new Date().getTime().toString() };
+    const newComment = { ...comment, id: id };
     setComments([...comments, newComment]);
+    if (newComment) {
+      addCommentOnCurrentPost(newComment);
+    }
     setComment({ email: "", text: "" });
   };
   useEffect(() => {
