@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import moment from "moment";
 import { useResultContext } from "../context/ResultContenxt";
-// import { async } from "@firebase/util";
+import { useLocation } from "react-router-dom";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../data/firebase";
 const CreatePost = () => {
@@ -16,13 +16,17 @@ const CreatePost = () => {
   // const [allPost, setAllPost] = useState([]);
   const inputRef = useRef();
   const [progress, setProgress] = useState(100);
+  const [postIsReady, setPostIsReady] = useState(false);
   // const [post, setPost] = useState({
   //   text: "",
   //   image: null,
   //   category: "",
   //   date: "",
   // });
-
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [location]);
   const addPost = () => {
     const { text, image, category, date, title } = post;
     // console.log(moment(Number(date)));
@@ -39,6 +43,7 @@ const CreatePost = () => {
         date: "",
       });
     }
+    setPostIsReady(false);
   };
   const onFileChange = (e) => {
     const file = e.target.files[0];
@@ -64,11 +69,17 @@ const CreatePost = () => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            console.log("File available at", downloadURL);
-            setPost({
-              ...post,
-              image: downloadURL,
-            });
+            if (downloadURL) {
+              // setProgress(100)
+              console.log("File available at", downloadURL);
+              setPost({
+                ...post,
+                image: downloadURL,
+              });
+              setTimeout(() => {
+                setPostIsReady(true);
+              }, 2000);
+            }
           });
         }
       );
@@ -150,21 +161,23 @@ const CreatePost = () => {
       {progress != 0 ? (
         <div className="progress">{progress}</div>
       ) : (
-        <button
-          onClick={() => {
-            // const callAddPost = setInterval(
-            //   () => {
-            addPost();
-            //     if (progress == 0) {
-            //       clearInterval(this);
-            //     }
-            //   },
-            //   progress ? progress : 5000
-            // );
-          }}
-        >
-          Add Post
-        </button>
+        postIsReady && (
+          <button
+            onClick={() => {
+              // const callAddPost = setInterval(
+              //   () => {
+              addPost();
+              //     if (progress == 0) {
+              //       clearInterval(this);
+              //     }
+              //   },
+              //   progress ? progress : 5000
+              // );
+            }}
+          >
+            Add Post
+          </button>
+        )
       )}
     </div>
   );

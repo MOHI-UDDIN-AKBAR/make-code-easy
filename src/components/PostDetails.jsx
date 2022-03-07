@@ -4,6 +4,7 @@ import Comments from "./Comments";
 import { useResultContext } from "../context/ResultContenxt";
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
+
 const PostDetails = () => {
   const [currentPost, setCurrentPost] = useState([]);
   const {
@@ -16,7 +17,10 @@ const PostDetails = () => {
     getAllPostInRealTime,
   } = useResultContext();
   // const checkLocation = () => {
-
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [location]);
   const { id } = useParams();
   useEffect(() => {
     const location = id;

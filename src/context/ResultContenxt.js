@@ -5,11 +5,13 @@ import { addDoc, collection, getDocs, doc, setDoc } from "firebase/firestore";
 const resultContext = createContext();
 const ResultsContextProvider = ({ children }) => {
   const [allPost, setAllPost] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [postGetBySearch, setPostGetBySearch] = useState([]);
   const [post, setPost] = useState({
     title: "",
     text: "",
     image: null,
-    category: "",
+    category: "web-developer",
     date: "",
   });
   const [comments, setComments] = useState([]);
@@ -41,12 +43,6 @@ const ResultsContextProvider = ({ children }) => {
       text: text,
       email: email,
     });
-    // try {
-    //   const docRef = await addDoc(collection(db, "comments"), {});
-    //   console.log("Document written with ID: ", docRef.id);
-    // } catch (e) {
-    //   console.error("Error adding document: ", e);
-    // }
   };
   const getAllCreatedPost = async () => {
     const querySnapshot = await getDocs(collection(db, "allPost"));
@@ -62,6 +58,17 @@ const ResultsContextProvider = ({ children }) => {
       // console.log(posts);
     }
   };
+  const getAllPostGetBySearch = () => {
+    const allRelatedPostToSearch = allPost.filter(
+      ({ id, post: { title, category } }) => {
+        return title.includes(searchText) || category.includes(searchText);
+      }
+    );
+    // console.log(allRelatedPostToSearch);
+    // if()
+    // setPostGetBySearch(allRelatedPostToSearch);
+    setPostGetBySearch(allRelatedPostToSearch);
+  };
   return (
     <resultContext.Provider
       value={{
@@ -74,6 +81,11 @@ const ResultsContextProvider = ({ children }) => {
         comments,
         setComments,
         addCommentOnCurrentPost,
+        searchText,
+        setSearchText,
+        postGetBySearch,
+        setPostGetBySearch,
+        getAllPostGetBySearch,
       }}
     >
       {children}
