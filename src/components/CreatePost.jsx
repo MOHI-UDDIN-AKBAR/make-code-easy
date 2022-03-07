@@ -26,7 +26,6 @@ const CreatePost = () => {
   const addPost = () => {
     const { text, image, category, date, title } = post;
     // console.log(moment(Number(date)));
-    // console.log(post);
 
     if (text && image && category && date && title) {
       setAllPost([...allPost, post]);

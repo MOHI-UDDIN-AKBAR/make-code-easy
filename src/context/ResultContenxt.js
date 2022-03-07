@@ -20,7 +20,6 @@ const ResultsContextProvider = ({ children }) => {
         console.log(allPost);
         const docRef = await addDoc(collection(db, "allPost"), {
           title: title,
-
           text: text,
           image: image,
           category: category,

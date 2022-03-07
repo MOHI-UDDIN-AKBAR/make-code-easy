@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useResultContext } from "../context/ResultContenxt";
-import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../data/firebase";
+import { doc, onSnapshot, collection, query, where } from "firebase/firestore";
 
 const AllRecentPost = () => {
   const {
@@ -15,25 +15,26 @@ const AllRecentPost = () => {
     getAllPostInRealTime,
   } = useResultContext();
   useEffect(() => {
-    // getAllCreatedPost();
     getAllCreatedPost();
-    // console.log(allPost);
   }, []);
-  // useEffect(() => {
-  //   db.collection("allPost").onSnapshot((snapshot) => {
-  //     // console.log();
-  //     snapshot.map((doc) => {
-  //       console.log(doc);
-  //     });
-  //   });
-  // }, []);
+
+  useEffect(() => {
+    const q = query(collection(db, "allPost"));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const posts = [];
+      querySnapshot.forEach((doc) => {
+        posts.push({ id: doc.id, post: doc.data() });
+      });
+      setAllPost(posts);
+      console.log(allPost);
+    });
+  }, []);
+
   return (
     <>
       {allPost?.map((recentPost) => {
-        const {
-          id,
-          post: { title, image, text, date, category },
-        } = recentPost;
+        const { id, post } = recentPost;
+        const { title, image, text, date, category } = post;
         return (
           <div className="recentPostContainer" key={id}>
             <div className="image">
@@ -43,7 +44,7 @@ const AllRecentPost = () => {
                     ? image
                     : "https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 }
-                alt={title}
+                alt={title ? title : "web-development"}
               />
             </div>
             <div className="specialImage">
@@ -68,21 +69,29 @@ const AllRecentPost = () => {
               </div>
             </div>
             <div className="postTitle">
-              <Link to={`/postDetails/${1}`} style={{ textDecoration: "none" }}>
-                <h2>{title}</h2>
+              <Link
+                to={`/postDetails/${id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <h2>{title ? title : "web-development"}</h2>
               </Link>
             </div>
             <div className="postContent">
               <p>{text}</p>
             </div>
             <div className="linkToFullPost">
-              <Link to={`/postDetails/${1}`} style={{ textDecoration: "none" }}>
+              <Link
+                to={`/postDetails/${id}`}
+                style={{ textDecoration: "none" }}
+              >
                 <button type="button">Continue Reading</button>
               </Link>
             </div>
           </div>
         );
       })}
+
+      {/* //another one */}
       <div className="recentPostContainer">
         <div className="image">
           <img
