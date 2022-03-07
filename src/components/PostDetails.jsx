@@ -37,7 +37,7 @@ const PostDetails = () => {
   return (
     <>
       {currentPost?.map(({ id, post }, index) => {
-        const { image, text, title, category, date } = post;
+        const { image, text, title, category, date, name } = post;
         return (
           <div key={id}>
             <div className="postDetailsContainer">
@@ -61,13 +61,13 @@ const PostDetails = () => {
                     src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="Profile picture"
                   />
-                  <span>Samir Khan</span>
+                  <span>{name ? name : ""}</span>
                 </div>
                 <div className="date">
                   <span>
                     <i className="fa-regular fa-calendar-minus"></i>
                   </span>
-                  <span>Oct, 10, 2021</span>
+                  <span>{date ? date : "Oct, 10, 2021"}</span>
                 </div>
               </div>
 

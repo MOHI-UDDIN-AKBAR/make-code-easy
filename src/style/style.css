@@ -380,7 +380,7 @@ img {
 .createNewPost h1 {
   color: #1f2633;
 }
-.createNewPost .title {
+.createNewPost .title, .createNewPost .userName {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -388,7 +388,7 @@ img {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.createNewPost .title input {
+.createNewPost .title input, .createNewPost .userName input {
   width: 50%;
   margin: 15px auto;
   font-size: 25px;
@@ -397,17 +397,18 @@ img {
   border: none;
   border: 1px solid #173383;
 }
-.createNewPost .title input:focus {
+.createNewPost .title input:focus, .createNewPost .userName input:focus {
   outline: none;
   border: 2px solid #4b6ecc;
+  transform: scale(1.2, 1.2);
 }
-.createNewPost .title input::-moz-placeholder {
+.createNewPost .title input::-moz-placeholder, .createNewPost .userName input::-moz-placeholder {
   color: #5e5d5d;
 }
-.createNewPost .title input:-ms-input-placeholder {
+.createNewPost .title input:-ms-input-placeholder, .createNewPost .userName input:-ms-input-placeholder {
   color: #5e5d5d;
 }
-.createNewPost .title input::placeholder {
+.createNewPost .title input::placeholder, .createNewPost .userName input::placeholder {
   color: #5e5d5d;
 }
 .createNewPost .textarea {

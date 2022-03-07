@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useResultContext } from "../context/ResultContenxt";
 import { useLocation } from "react-router-dom";
 const Header = () => {
@@ -17,6 +17,8 @@ const Header = () => {
     postGetBySearch,
     setPostGetBySearch,
     getAllPostGetBySearch,
+    postFromCategory,
+    setPostFromCategory,
   } = useResultContext();
   useEffect(() => {
     // const allRelatedPostToSearch = allPost.filter(
@@ -34,11 +36,27 @@ const Header = () => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [location]);
+  const getPostFromCategory = (category) => {
+    const postFromCurrentCategory = allPost.filter(({ id, post }) => {
+      return post.category == category;
+    });
+    if (postFromCurrentCategory.length > 0) {
+      console.log(postFromCurrentCategory);
+      setPostFromCategory(postFromCurrentCategory);
+    }
+  };
+  const makeChangeForHome = () => {
+    setPostFromCategory([]);
+  };
+  useEffect(() => {
+    getPostFromCategory();
+  }, [postFromCategory]);
   return (
     <div className="header">
       <div className="logo">
         <Link to={`/`} style={{ textDecoration: "none", color: "white" }}>
-          <h1>MAKE CODE EASY</h1>
+          <h1 onClick={makeChangeForHome}>MAKE CODE EASY</h1>
+          {/* <h1>MAKE CODE EASY</h1> */}
         </Link>
       </div>
       <div className="inputSection">
@@ -60,9 +78,26 @@ const Header = () => {
         </Link>
       </div>
       <div className="category">
-        <span>Web developer</span>
-        <span>React developer</span>
-        <span>C++ developer</span>
+        {/* <Link to={`/`} style={{ textDecoration: "none", color: "white" }}>
+          <span onClick={() => getPostFromCategory("web-developer")}>
+            Web developer
+          </span>
+        </Link> */}
+        <NavLink to={"/"} style={{ textDecoration: "none", color: "white" }}>
+          <span onClick={() => getPostFromCategory("web-developer")}>
+            Web developer
+          </span>
+        </NavLink>
+        <NavLink to={"/"} style={{ textDecoration: "none", color: "white" }}>
+          <span onClick={() => getPostFromCategory("react-developer")}>
+            React developer
+          </span>
+        </NavLink>
+        <NavLink to={"/"} style={{ textDecoration: "none", color: "white" }}>
+          <span onClick={() => getPostFromCategory("c_plus_plus_developer")}>
+            C++ developer
+          </span>
+        </NavLink>
       </div>
     </div>
   );

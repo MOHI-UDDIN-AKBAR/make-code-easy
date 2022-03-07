@@ -353,6 +353,7 @@ img {
   h1 {
     color: #1f2633;
   }
+
   .title {
     width: 100%;
     @include flexCenter(center, row);
@@ -367,11 +368,15 @@ img {
       &:focus {
         outline: none;
         border: 2px solid #4b6ecc;
+        transform: scale(1.2, 1.2);
       }
       &::placeholder {
         color: rgb(94, 93, 93);
       }
     }
+  }
+  .userName {
+    @extend .title;
   }
   .textarea {
     margin-bottom: 20px;
@@ -536,3 +541,5 @@ img {
     }
   }
 }
+
+//style for active category

@@ -4,6 +4,7 @@ import { useResultContext } from "../context/ResultContenxt";
 import { useLocation } from "react-router-dom";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { storage } from "../data/firebase";
+// var moment = require("moment");
 const CreatePost = () => {
   const {
     addCreatedPost,
@@ -28,14 +29,15 @@ const CreatePost = () => {
     window.scrollTo({ top: 0 });
   }, [location]);
   const addPost = () => {
-    const { text, image, category, date, title } = post;
+    const { text, image, category, date, title, name } = post;
     // console.log(moment(Number(date)));
 
-    if (text && image && category && date && title) {
+    if (text && image && category && date && title && name) {
       setAllPost([...allPost, post]);
       console.log(post);
       addCreatedPost();
       setPost({
+        name: "",
         title: "",
         text: "",
         image: "",
@@ -102,10 +104,18 @@ const CreatePost = () => {
   return (
     <div className="createNewPost">
       <h1>Create New Post</h1>
+      <div className="userName">
+        <input
+          type="text"
+          placeholder="Username"
+          value={post.name}
+          onChange={(e) => setPost({ ...post, name: e.target.value })}
+        />
+      </div>
       <div className="title">
         <input
           type="text"
-          placeholder="Title..."
+          placeholder=" Post Title..."
           value={post.title}
           onChange={(e) => setPost({ ...post, title: e.target.value })}
         />
@@ -118,7 +128,7 @@ const CreatePost = () => {
             setPost({
               ...post,
               text: e.target.value,
-              date: new Date().getTime().toString(),
+              date: moment().format("MMM Do YY"),
             })
           }
         />

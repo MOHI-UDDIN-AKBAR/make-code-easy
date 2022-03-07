@@ -7,7 +7,9 @@ const ResultsContextProvider = ({ children }) => {
   const [allPost, setAllPost] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [postGetBySearch, setPostGetBySearch] = useState([]);
+  const [postFromCategory, setPostFromCategory] = useState([]);
   const [post, setPost] = useState({
+    name: "",
     title: "",
     text: "",
     image: null,
@@ -17,11 +19,12 @@ const ResultsContextProvider = ({ children }) => {
   const [comments, setComments] = useState([]);
   const addCreatedPost = async () => {
     try {
-      const { text, image, category, date, title } = post;
-      if (text && image && category && date && title) {
-        const { text, image, category, date, title } = post;
+      const { text, image, category, date, title, name } = post;
+      if (text && image && category && date && title && name) {
+        const { text, image, category, date, title, name } = post;
         console.log(allPost);
         const docRef = await addDoc(collection(db, "allPost"), {
+          name: name,
           title: title,
           text: text,
           image: image,
@@ -86,6 +89,8 @@ const ResultsContextProvider = ({ children }) => {
         postGetBySearch,
         setPostGetBySearch,
         getAllPostGetBySearch,
+        postFromCategory,
+        setPostFromCategory,
       }}
     >
       {children}

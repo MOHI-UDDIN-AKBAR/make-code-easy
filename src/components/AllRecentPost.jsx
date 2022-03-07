@@ -4,6 +4,7 @@ import { useResultContext } from "../context/ResultContenxt";
 import { db } from "../data/firebase";
 import { doc, onSnapshot, collection, query, where } from "firebase/firestore";
 import { useLocation } from "react-router-dom";
+import moment from "moment";
 
 const AllRecentPost = () => {
   const {
@@ -18,6 +19,8 @@ const AllRecentPost = () => {
     setSearchText,
     postGetBySearch,
     setPostGetBySearch,
+    postFromCategory,
+    setPostFromCategory,
   } = useResultContext();
   useEffect(() => {
     getAllCreatedPost();
@@ -41,66 +44,70 @@ const AllRecentPost = () => {
   return (
     <>
       {/* {console.log(allRecentPost)} */}
-      {(postGetBySearch.length > 0 ? postGetBySearch : allPost)?.map(
-        (recentPost) => {
-          const { id, post } = recentPost;
-          const { title, image, text, date, category } = post;
-          return (
-            <div className="recentPostContainer" key={id}>
-              <div className="image">
-                <img
-                  src={
-                    image
-                      ? image
-                      : "https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  }
-                  alt={title ? title : "web-development"}
-                />
-              </div>
-              <div className="specialImage">
+      {console.log(postFromCategory)}
+      {(postGetBySearch.length > 0
+        ? postGetBySearch
+        : postFromCategory.length > 0
+        ? postFromCategory
+        : allPost
+      )?.map((recentPost) => {
+        const { id, post } = recentPost;
+        const { title, image, text, date, category, name } = post;
+        return (
+          <div className="recentPostContainer" key={id}>
+            <div className="image">
+              <img
+                src={
+                  image
+                    ? image
+                    : "https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                }
+                alt={title ? title : "web-development"}
+              />
+            </div>
+            <div className="specialImage">
+              <img
+                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Profile picture"
+              />
+            </div>
+            <div className="authorInfoAndDate">
+              <div className="authorInfo">
                 <img
                   src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   alt="Profile picture"
                 />
+                <span>{name ? name : ""}</span>
               </div>
-              <div className="authorInfoAndDate">
-                <div className="authorInfo">
-                  <img
-                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="Profile picture"
-                  />
-                  <span>Samir Khan</span>
-                </div>
-                <div className="date">
-                  <span>
-                    <i className="fa-regular fa-calendar-minus"></i>
-                  </span>
-                  <span>Oct, 10, 2021</span>
-                </div>
-              </div>
-              <div className="postTitle">
-                <Link
-                  to={`/postDetails/${id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <h2>{title ? title : "web-development"}</h2>
-                </Link>
-              </div>
-              <div className="postContent">
-                <p>{text}</p>
-              </div>
-              <div className="linkToFullPost">
-                <Link
-                  to={`/postDetails/${id}`}
-                  style={{ textDecoration: "none" }}
-                >
-                  <button type="button">Continue Reading</button>
-                </Link>
+              <div className="date">
+                <span>
+                  <i className="fa-regular fa-calendar-minus"></i>
+                </span>
+                <span>{date ? date : "Oct, 10, 2021"}</span>
               </div>
             </div>
-          );
-        }
-      )}
+            <div className="postTitle">
+              <Link
+                to={`/postDetails/${id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <h2>{title ? title : "web-development"}</h2>
+              </Link>
+            </div>
+            <div className="postContent">
+              <p>{text}</p>
+            </div>
+            <div className="linkToFullPost">
+              <Link
+                to={`/postDetails/${id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <button type="button">Continue Reading</button>
+              </Link>
+            </div>
+          </div>
+        );
+      })}
 
       {/* //another one */}
       <div className="recentPostContainer">
