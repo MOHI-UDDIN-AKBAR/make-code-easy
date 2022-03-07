@@ -353,11 +353,31 @@ img {
   h1 {
     color: #1f2633;
   }
+  .title {
+    width: 100%;
+    @include flexCenter(center, row);
+    input {
+      width: 50%;
+      margin: 15px auto;
+      font-size: 25px;
+      color: #1f2633;
+      padding: 0.7rem 1rem;
+      border: none;
+      border: 1px solid #173383;
+      &:focus {
+        outline: none;
+        border: 2px solid #4b6ecc;
+      }
+      &::placeholder {
+        color: rgb(94, 93, 93);
+      }
+    }
+  }
   .textarea {
     margin-bottom: 20px;
     width: 100%;
     textarea {
-      width: 70%;
+      width: 50%;
       height: 100px;
       border: 1px solid #173383;
       resize: none;
@@ -374,7 +394,7 @@ img {
     }
   }
   .imageAndCategory {
-    width: 70%;
+    width: 50%;
     @include flexCenter(flex-start, row);
     .image {
       margin-left: 30px;
@@ -409,15 +429,18 @@ img {
     font-size: 22px;
     margin: 15px auto;
     padding: 0.6rem 1rem;
-    border: 2px solid purple;
+    border: 2px solid #173383;
     cursor: pointer;
     border-radius: 5px;
     color: #173383;
     background-color: white;
     transition: background-color 0.4s linear;
     box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
     &:hover {
       transform: scale(1.1, 1.1);
+      border: 2px solid purple;
+
       background-color: purple;
       color: white;
     }
@@ -480,7 +503,13 @@ img {
   }
   .createNewPost {
     width: 100%;
-
+    // .title {
+    // width: 100%;
+    //   @include flexCenter(center, row);
+    //   input {
+    //     // width: 300px;
+    //   }
+    // }
     .imageAndCategory {
       width: 70%;
       @include flexCenter(center, column);
