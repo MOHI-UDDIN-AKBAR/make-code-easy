@@ -169,7 +169,11 @@ const CreatePost = () => {
         </div>
       </div>
       {progress != 0 ? (
-        <div className="progress">{progress}</div>
+        <div className="progress">
+          <progress className="showProgress" value={progress} max="100" min="0">
+            {progress}
+          </progress>
+        </div>
       ) : (
         postIsReady && (
           <button

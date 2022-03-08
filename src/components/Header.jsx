@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useResultContext } from "../context/ResultContenxt";
 import { useLocation } from "react-router-dom";
 const Header = () => {
-  const [text, setText] = useState("");
+  // const [text, setText] = useState("");
   const {
     addCreatedPost,
     allPost,
@@ -83,17 +83,29 @@ const Header = () => {
             Web developer
           </span>
         </Link> */}
-        <NavLink to={"/"} style={{ textDecoration: "none", color: "white" }}>
+        <NavLink
+          to={"/"}
+          className="navLink"
+          style={{ textDecoration: "none", color: "white" }}
+        >
           <span onClick={() => getPostFromCategory("web-developer")}>
             Web developer
           </span>
         </NavLink>
-        <NavLink to={"/"} style={{ textDecoration: "none", color: "white" }}>
+        <NavLink
+          to={"/"}
+          className="navLink"
+          style={{ textDecoration: "none", color: "white" }}
+        >
           <span onClick={() => getPostFromCategory("react-developer")}>
             React developer
           </span>
         </NavLink>
-        <NavLink to={"/"} style={{ textDecoration: "none", color: "white" }}>
+        <NavLink
+          to={"/"}
+          className="navLink"
+          style={{ textDecoration: "none", color: "white" }}
+        >
           <span onClick={() => getPostFromCategory("c_plus_plus_developer")}>
             C++ developer
           </span>

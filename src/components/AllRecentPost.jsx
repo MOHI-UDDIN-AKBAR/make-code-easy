@@ -67,14 +67,14 @@ const AllRecentPost = () => {
             </div>
             <div className="specialImage">
               <img
-                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://cdn.pixabay.com/photo/2018/01/24/17/33/light-bulb-3104355_960_720.jpg"
                 alt="Profile picture"
               />
             </div>
             <div className="authorInfoAndDate">
               <div className="authorInfo">
                 <img
-                  src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  src="https://cdn.pixabay.com/photo/2018/01/24/17/33/light-bulb-3104355_960_720.jpg"
                   alt="Profile picture"
                 />
                 <span>{name ? name : ""}</span>
