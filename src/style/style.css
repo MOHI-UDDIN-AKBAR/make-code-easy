@@ -543,6 +543,9 @@ img {
     margin: 0px auto;
     margin-bottom: 40px;
   }
+  .recentPostContainer .image, .postDetailsContainer .image {
+    height: 270px;
+  }
   .recentPostContainer .authorInfoAndDate, .postDetailsContainer .authorInfoAndDate {
     width: 100%;
   }
